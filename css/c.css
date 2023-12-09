@@ -1,0 +1,42 @@
+body {
+  overflow-x: hidden;
+}
+
+.container-fluid {
+  height: auto;
+}
+
+.item {
+  height: 100%;
+  width: 20%; 
+  cursor: pointer;
+  box-shadow: rgba(153, 153, 153, 0.6) 0px 0px 5px 0px;
+  padding-right: 0;
+  padding-left: 0;
+  /* padding: 10px; */
+}
+
+.image-container {
+  /* height: 250px; Đặt chiều cao cố định cho tất cả các hình ảnh */
+  overflow: hidden; /* Ẩn phần nằm ngoài chiều cao đã đặt */
+  object-fit: cover;
+}
+
+.image-container img {
+  width: 100%; /* Hình ảnh chiếm đầy đủ chiều rộng của .image-container */
+  height: 60%; /* Giữ tỷ lệ khung hình của ảnh */
+  object-fit: cover;
+}
+
+.text-container {
+  padding: 1rem;
+}
+
+/* .slide {
+  height: 500px;
+} */
+
+.carousel-item img {
+  width: 100%; /* Đặt chiều rộng của ảnh là 100% */
+  height: auto; /* Tự động tính chiều cao dựa trên chiều rộng */
+}
