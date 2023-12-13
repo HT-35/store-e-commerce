@@ -22,9 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (const i of data) {
       const quality = i.quality;
-      const { _id } = i;
-      //   console.log(_id);
-
+      const { product } = i;
+      console.log(product);
+      const { _id } = product;
+      // console.log("id :", product);
       const { Image, ProductName, Price, Shipping, Unit } = i.product;
 
       const calcuTotal = Number(quality) * Number(Price);
@@ -89,7 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
       item.addEventListener("input", () => {
         // lấy dataset của input
         const idPro = item.dataset.productId;
-        console.log(idPro);
+        // console.log(idPro);
+
         // sau khi có dataset của input thì select các price product có cùng dataset
         const priceProduct = document.querySelector(
           `.priceProduct[data-product-id*='"id":"${idPro}"']`
@@ -104,15 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const totalAmountElements = document.querySelectorAll(".totalAmount");
 
+    // khi click vao btn tinh tien thì lấy đc idPro trong data-id ,vì mỗi quan l quanlity đều chưa 1 data-id giống btn tính tiền
     totalAmountElements.forEach((item) => {
+      // console.log(item);
       item.addEventListener("click", () => {
         // console.log("Data Value:", dataValue);
-        const dataValue = item.dataset.id;
-        const priceProduct = document.querySelector(
-          `.quantity-input[data-product-id="${dataValue}"]`
+        const idPro = item.dataset.id;
+        const quantityProduct = document.querySelector(
+          `.quantity-input[data-product-id="${idPro}"]`
         ).value;
-        console.log(priceProduct);
-        window.location.href = `http://127.0.0.1:5500/product/payment.html?quantity=${priceProduct}&product=${dataValue}`;
+        console.log(idPro);
+        // console.log(priceProduct);
+        window.location.href = `http://127.0.0.1:5500/product/payment.html?quantity=${quantityProduct}&product=${idPro}`;
       });
     });
   };

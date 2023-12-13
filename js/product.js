@@ -7,6 +7,7 @@ const insertData = document.querySelector(".productDetail");
 console.log(insertData);
 
 const token = localStorage.getItem("accessToken");
+
 const slug = location.hash.substring(1);
 
 const callApi = async (slug, token) => {
